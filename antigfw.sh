@@ -5,7 +5,7 @@ time=$(date "+%Y%m%d%H%M%S")
 ip=$(cat /etc/wireguard/wg0.conf| grep "Endpoint = " | awk -F "Endpoint = " '{print $2}'| awk -F ":" '{print $1}')
 port=$(cat /etc/wireguard/wg0.conf| grep "Endpoint = " | awk -F "Endpoint = " '{print $2}'| awk -F ":" '{print $2}')
 
-#判断端口号，如果是60000及以上，将新端口好定义为10000.如果不是将端口号+1，作为新端口号。
+#判断端口号，如果是60000及以上，将新端口号定义为10000.如果不是将端口号+1，作为新端口号。
 if [ $port -gt 59999 ]; then
         newport=10000
 else
